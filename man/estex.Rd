@@ -1,7 +1,7 @@
 \name{estex}
 \alias{estex}
 
-\title{This function returns the estimates of mixed effects models, of which iteratively the influence of data nested within a single grouping factor is neutralized.}
+\title{Estex returns mixed model estimates, iteratively excluding the influence of data nested within single grouping factors.}
 \description{
    estex() is the workhorse function of the influence.ME package. Based on a priorly estimated mixed effects regression model (of class \code{'mer'}), the estex() function iteratively modifies the mixed effects model by neutralizing the effect a grouped set of data has on the parameters, and which returns returns the fixed parameters of these iteratively modified models. These are used to compute measures of influential data.
 }

@@ -4,7 +4,7 @@
 \docType{package}
 
 \title{
-Compute measures of influential data based on mixed effects regression models
+Influence.ME: Tools for recognizing influential data in mixed models
 }
 
 \description{
@@ -15,8 +15,8 @@ influence.ME calculates measures of influence for mixed effects models. The basi
 \tabular{ll}{
 Package: \tab influence.ME\cr
 Type: \tab Package\cr
-Version: \tab 0.6\cr
-Date: \tab 2009-05-1\cr
+Version: \tab 0.6.1\cr
+Date: \tab 2009-04-27\cr
 License: \tab GPL-3\cr
 LazyLoad: \tab yes\cr
 }

@@ -27,9 +27,6 @@ grouping.levels(model, group)
 
 \author{Rense Nieuwenhuis, Ben Pelzer, Manfred te Grotenhuis}
 
-\note{ 
- Admittedly, this function is of little use in the 0.5 version of the influence.ME package. However, it will be used in future versions, in which functionality will be provided to divide long influence.ME runs over different sessions or even computers.
-}
 
 \examples{
  # Penicillin data originates from the lme4 package.
