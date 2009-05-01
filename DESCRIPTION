@@ -1,8 +1,8 @@
 Package: influence.ME
 Type: Package
 Title: Tools for recognizing influential data in mixed models
-Version: 0.5
-Date: 2009-04-11
+Version: 0.6
+Date: 2009-05-01
 Author: Rense Nieuwenhuis, Ben Pelzer, Manfred te Grotenhuis
 Maintainer: Rense Nieuwenhuis <contact@rensenieuwenhuis.nl>
 Description: influence.ME provides a collection of tool for calculating
@@ -19,8 +19,9 @@ Description: influence.ME provides a collection of tool for calculating
         measurement of the change in all parameter estimates, or a
         selection thereof.
 License: GPL-3
+URL: http://www.rensenieuwenhuis.nl/r-project/influenceme/
 Depends: lme4, lattice
 LazyLoad: yes
-Packaged: Sat Apr 11 23:04:29 2009; Rense
+Packaged: 2009-04-25 12:43:46 UTC; Rense
 Repository: CRAN
-Date/Publication: 2009-04-15 07:34:36
+Date/Publication: 2009-04-26 15:27:54

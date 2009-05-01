@@ -15,8 +15,8 @@ influence.ME calculates measures of influence for mixed effects models. The basi
 \tabular{ll}{
 Package: \tab influence.ME\cr
 Type: \tab Package\cr
-Version: \tab 0.5\cr
-Date: \tab 2009-04-11\cr
+Version: \tab 0.6\cr
+Date: \tab 2009-05-1\cr
 License: \tab GPL-3\cr
 LazyLoad: \tab yes\cr
 }
@@ -34,7 +34,7 @@ Belsley, D.A., Kuh, E. & Welsch, R.E. (1980). \emph{Regression Diagnostics. Iden
 
 Snijders, T.A. & Bosker, R.J. (1999). \emph{Multilevel Analysis, an introduction to basic and advanced multilevel modeling}. Sage. 
 
-Van Der Meer, T., Te Grotenhuis, M. & Pelzer, B. \emph{Influential cases in multi-level modeling. A methodological comment on 'National context, religiosity, and volunteering' by Ruiter and De Graaf}. Current status: conditionally accepted by the American Sociological Review.
+Van Der Meer, T., Te Grotenhuis, M. & Pelzer, B. \emph{Influential cases in multi-level modeling. A methodological comment on 'National context, religiosity, and volunteering' by Ruiter and De Graaf}. Current status: accepted for publication by the American Sociological Review.
 }
 
 \keyword{package}
@@ -43,7 +43,7 @@ Van Der Meer, T., Te Grotenhuis, M. & Pelzer, B. \emph{Influential cases in mult
 \keyword{regression}
 
 \seealso{
-\code{\link{estex}}, \code{\link{exclude.influence}}, \code{\link{ME.cook}}, \code{\link{ME.dfbetas}} 
+\code{\link{estex}}, \code{\link{exclude.influence}}, \code{\link{ME.cook}}, \code{\link{ME.dfbetas}}, \code{\link{ME.pchange}}
 }
 
 \examples{

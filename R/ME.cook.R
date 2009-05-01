@@ -1,10 +1,10 @@
 `ME.cook` <-
-function(estex, parameters=0, plot=FALSE, ...) 
+function(estex, parameters=0, plot=FALSE, sort=FALSE, ...) 
 	{
 		
 		if(plot==TRUE)
 			{
-			dp.ME.cook(estex, parameters=parameters, plot=FALSE, ...)
+			dp.ME.cook(estex, parameters=parameters, plot=FALSE, sort=sort, ...)
 			}
 	
 		n.groups <- dim(estex$alt.fixed)[1]
@@ -32,8 +32,13 @@ function(estex, parameters=0, plot=FALSE, ...)
 			e <- as.matrix(e) 
 			rownames(e) <- rownames(b)
 			}
-			
+		
+		if(sort == TRUE)
+			{
+			e <- as.matrix(sort(e[,1]))
 
+			}
+			
 		return(e)
 	}
 

@@ -6,13 +6,14 @@
     Cook's Distance is a measure indicating to what extent model parameters are influenced by (a set of) influential data on which the model is based. This function computes the Cook's distance based on the information returned by the estex() function.
 }
 \usage{
-ME.cook(estex, parameters = 0, plot=FALSE, ...)
+ME.cook(estex, parameters = 0, plot=FALSE, sort=FALSE, ...)
 }
 
 \arguments{
   \item{estex}{An object as returned by the estex() function, containing the altered estimates of a mixed effects regression model}
   \item{parameters}{Used to define a selection of parameters. If parameters=0 (default), Cook's Distance is calculated based on all parameters in the model}
   \item{plot}{If plot=TRUE, the results from the ME.cook() function are forwarded to the dp.ME.cook() function, which creates a visual representation of the Cook's Distances.}
+  \item{sort}{If \code{sort=TRUE} the values of Cook's Distance are ordered based on magnitude. If \code{sort=FALSE} (default) no sorting takes place.}
   \item{\dots}{Further arguments passed on to the dp.ME.cook() function.}
 }
 

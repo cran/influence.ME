@@ -41,16 +41,22 @@ function(model, grouping, level, gf="single")
 				if (length(names(ranef(model)[[grnr]])) == 1)
 					{
 						model.updated <- update(model, 
-						   formula = as.formula(paste(". ~ 0 + intercept.alt + . + ", paste(added.variables, collapse="+"), 	" - (1 |", grouping, ") + (0 + intercept.alt |", grouping, ")")),
+						   formula = as.formula(paste(". ~ 0 + intercept.alt +", 
+						   paste(added.variables, collapse="+"), 	
+						   "+ .",
+						   "- (1 |", grouping, ") + (0 + intercept.alt |", grouping, ")")),
 							data = data.adapted)
+
 					}
 		
 				if (length(names(ranef(model)[[grnr]])) > 1)
 					{
 						model.updated <- update(model, 
-						   formula = as.formula(paste(". ~ 0 + intercept.alt + . + ", paste(added.variables, collapse="+"),
-						   paste("- (", paste(names(ranef(model)[[grnr]])[-1], collapse="+"), "|", grouping, ")"),
-					   		" + (0 + intercept.alt +", paste(names(ranef(model)[[grnr]])[-1], collapse="+"), "|", 	grouping, ")")),
+						   formula = as.formula(paste(". ~ 0 + intercept.alt + ", 
+						   paste(added.variables, collapse="+"),
+						   " + .",
+						   paste(" - (", paste(names(ranef(model)[[grnr]])[-1], collapse="+"), "|", grouping, ")"),
+					   		" + (0 + intercept.alt +", paste(names(ranef(model)[[grnr]])[-1], collapse="+"), "|", grouping, ")")),
 							data = data.adapted)
 					}
 				}
@@ -106,8 +112,9 @@ function(model, grouping, level, gf="single")
 				model.updated <- update(model,
 					formula = as.formula(
 						paste(
-							". ~ 0 + intercept.alt + . +",
+							". ~ 0 + intercept.alt + ",
 							paste(added.variables, collapse="+"),
+							"+ . ",
 							delete.gf,
 							new.gf)),
 					data=data.adapted)
@@ -130,9 +137,12 @@ function(model, grouping, level, gf="single")
 				
 				colnames(data.adapted)[ncol(data.adapted)] <- added.variables[length(added.variables)]
 			}
-			
+
 		model.updated <- update(model, 
-			formula = as.formula(paste(". ~ . + ", paste(added.variables, collapse="+"))),
+			formula = as.formula(paste(
+				". ~ 0 + intercept.alt + ", 
+				paste(added.variables, collapse="+"),
+				"+ .")),
 			data = data.adapted)
 		}		
 	

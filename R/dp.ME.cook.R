@@ -1,10 +1,15 @@
 `dp.ME.cook` <-
-function(estex, parameters=0, groups=0, tol=0, ...)
+function(estex, parameters=0, groups=0, tol=0, sort=FALSE, ...)
 	{	
 	ifelse(parameters==0, p.sel <- 1:dim(estex$alt.fixed)[2], p.sel <- parameters) 
 	ifelse(groups==0, g.sel <- 1:dim(estex$alt.fixed)[1], g.sel <- groups)
 	
-	plot.matrix <- ME.cook(estex, parameters=p.sel)[g.sel,]
+	plot.matrix <- ME.cook(estex, parameters=p.sel, sort=sort)[g.sel,]
+	
+	#if(sort == TRUE)
+	#	{
+	#	plot.matrix <- as.matrix(sort(plot.matrix))
+	#	}
 	
 	if(tol == 0)
 		{ 
