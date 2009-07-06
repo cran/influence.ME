@@ -1,8 +1,18 @@
 `exclude.influence` <- 
-function(model, grouping, level, gf="single")
+function(model, grouping, level, gf="single", delete=FALSE)
 {
 	data.adapted <- model.frame(model)
 	added.variables <- character()
+	
+	if(delete==TRUE)
+		{
+		## Only works when length(level) ==1, this needs to be enhanced
+		
+		group.var <- which(names(data.adapted) == grouping)
+		data.adapted <- subset(data.adapted, data.adapted[,group.var]!=level)
+		model.updated <- update(model, data=data.adapted)
+		return(model.updated)
+		}
 	
 	if(names(data.adapted)[2] != "intercept.alt")
 		{

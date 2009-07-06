@@ -3,11 +3,11 @@
 
 \title{Estex returns mixed model estimates, iteratively excluding the influence of data nested within single grouping factors.}
 \description{
-   estex() is the workhorse function of the influence.ME package. Based on a priorly estimated mixed effects regression model (of class \code{'mer'}), the estex() function iteratively modifies the mixed effects model by neutralizing the effect a grouped set of data has on the parameters, and which returns returns the fixed parameters of these iteratively modified models. These are used to compute measures of influential data.
+   estex() is the workhorse function of the influence.ME package. Based on a priorly estimated mixed effects regression model (estimated using lme4), the estex() function iteratively modifies the mixed effects model to neutralize the effect a grouped set of data has on the parameters, and which returns returns the fixed parameters of these iteratively modified models. These are used to compute measures of influential data.
 }
 
 \usage{
-estex(model, group, select = 0, gf="single", count = FALSE, ...)
+estex(model, group, select = 0, gf="single", count = FALSE, delete=FALSE, ...)
 }
 
 \arguments{
@@ -16,6 +16,7 @@ estex(model, group, select = 0, gf="single", count = FALSE, ...)
   \item{select}{Defines the selection of grouping factors that should be omitted. Defaults to 0, resulting in each level of the grouping factor being omitted iteratively. When a selection is defined, model parameters for the full model, and the altered model are returned. The selection can be a vector of multiple levels of the grouping factor.}
   \item{gf}{Indicates from which of the model's grouping factors the influence of the specified grouping factor is to be neutralized. If \code{gf="single"} (default), the levels of the specified grouping factor are only neutralized regarding the grouping factor specified in \code{group}. In its present form, \code{gf="single"} only works on mixed models with a maximum of 2 grouping factors. If \code{gf="all"}, the influence from the levels of \code{group} is neutralized regarding all grouping factors in the model. This option only applies to models with more than a single grouping factor.}
   \item{count}{If count=TRUE, the remaining number of grouping factors that still need to be omitted are printed.}
+  \item{delete}{If delete=FALSE (default), the influence of higher level groups is excluded from the model by setting the intercept-vector for the observations nested within these groups to 0, and by adding a dummy-variable indicating these observations (Langford and Lewis, 1998). If delete=TRUE, the influence is excluded by simply deleting the observations nested within the higher level group.}
   \item{\dots}{Optional arguments that are passed on to the lmer/glmer function}
 }
 
@@ -39,10 +40,13 @@ estex(model, group, select = 0, gf="single", count = FALSE, ...)
 
 \references{
  Belsley, D.A., Kuh, E. & Welsch, R.E. (1980). \emph{Regression Diagnostics. Identifying Influential Data and Source of Collinearity}. Wiley. 
+ 
+ Langford, I. H. and Lewis, T. (1998). Outliers in multilevel data. Journal of the 
+Royal Statistical Society: Series A (Statistics in Society), 161:121-160.
 
  Snijders, T.A. & Bosker, R.J. (1999). \emph{Multilevel Analysis, an introduction to basic and advanced multilevel modeling}. Sage. 
 
- Van Der Meer, T., Te Grotenhuis, M. & Pelzer, B. \emph{Influential cases in multi-level modeling. A methodological comment on 'National context, religiosity, and volunteering' by Ruiter and De Graaf}. Current status: conditionally accepted by  the American Sociological Review.
+Van Der Meer, T., Te Grotenhuis, M. & Pelzer, B. \emph{Influential cases in multi-level modeling. A methodological comment on 'National context, religiosity, and volunteering' by Ruiter and De Graaf}. Current status: Accepted for publication in the American Sociological Review.
 }
 
 \author{Rense Nieuwenhuis, Ben Pelzer, Manfred te Grotenhuis}

@@ -23,10 +23,7 @@ grouping.levels(model, group)
  Returns a character vector containing all the names / labels of levels of the grouping factor.
 }
 
-\references{http://www.ru.nl/mt/ic/downloads/}
-
 \author{Rense Nieuwenhuis, Ben Pelzer, Manfred te Grotenhuis}
-
 
 \examples{
  # Penicillin data originates from the lme4 package.

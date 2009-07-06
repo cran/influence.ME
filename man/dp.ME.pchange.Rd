@@ -10,7 +10,7 @@
 dp.ME.pchange(estex, parameters = 0, groups = 0, sort=FALSE, to.sort=NA, abs=FALSE, ...)
 }
 \arguments{
-  \item{estex}{An object as returned by the estex() function, containing the altered estimates of a mixed effects regression model.}
+  \item{estex}{An object as returned by the \code{estex()} function, containing the altered estimates of a mixed effects regression model.}
   \item{parameters}{Used to define a selection of parameters. If parameters = 0 (default), values for percentile change are visualized for parameters in the model.}
   \item{groups}{Used to define a selection of nesting groups that should be visualized. If groups = 0 (default), the percentile changes for all nesting groups are shown.}
   \item{sort}{If \code{sort=TRUE} the values of percentile change are ordered based on magnitude before visualization. If \code{sort=FALSE} (default) no sorting takes place.}

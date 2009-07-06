@@ -6,7 +6,7 @@
   Using mixed effects regression models, \code{exclude.influence} excludes the influence of a group of cases grouped within a single grouping factor, or a set of grouping factors. The function returns a model in which the influence a grouped set of observations has on both the variance and point-estimate of the (random) intercept.
 }
 \usage{
-exclude.influence(model, grouping, level, gf="single") 
+exclude.influence(model, grouping, level, gf="single", delete=FALSE) 
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -14,6 +14,7 @@ exclude.influence(model, grouping, level, gf="single")
   \item{grouping}{The grouping factor of which one or more groupings levels are to be 'neutralized'}
   \item{level}{Vector of character strings, indicating either a single level or a set of grouping levels the influence of which is to be neutralized}
   \item{gf}{Indicates from which of the model's grouping factors the influence of the specified grouping factor is to be neutralized. If \code{gf="single"} (default), the levels of the specified grouping factor are only neutralized from the grouping factor specified in \code{group}. In its present form, \code{gf="single"} only works on mixed models with a maximum of 2 grouping factors. If \code{gf="all"}, the influence from the levels of \code{group} is neutralized regarding all grouping factors in the model. This option only applies to models with more than a single grouping factor.}
+  \item{delete}{If delete=FALSE (default), the influence of higher level groups is excluded from the model by setting the intercept-vector for the observations nested within these groups to 0, and by adding a dummy-variable indicating these observations (Langford and Lewis, 1998). If delete=TRUE, the influence is excluded by simply deleting the observations nested within the higher level group.}
 }
 \details{
 To apply the basic logic of influential cases to mixed effects models one has to measure the influence of a particular higher level unit on the estimates of a higher level predictor. This means that the mixed effects model has to be adjusted to neutralize the unit's influence on that estimate, while at the same time allowing the unit's lower-level cases to help estimate the effects of the lower-level predictors in the model. This procedure is based on a modification of the intercept and the addition of a dummy variable for the cases that might be influential.
@@ -28,9 +29,12 @@ Mixed effects regression model of class \code{'mer'}, with a modified random int
 \references{
 Belsley, D.A., Kuh, E. & Welsch, R.E. (1980). \emph{Regression Diagnostics. Identifying Influential Data and Source of Collinearity}. Wiley. 
 
+Langford, I. H. and Lewis, T. (1998). Outliers in multilevel data. Journal of the 
+Royal Statistical Society: Series A (Statistics in Society), 161:121-160.
+
 Snijders, T.A. & Bosker, R.J. (1999). \emph{Multilevel Analysis, an introduction to basic and advanced multilevel modeling}. Sage. 
 
-Van Der Meer, T., Te Grotenhuis, M. & Pelzer, B. \emph{Influential cases in multi-level modeling. A methodological comment on 'National context, religiosity, and volunteering' by Ruiter and De Graaf}. Current status: conditionally accepted by the American Sociological Review.
+Van Der Meer, T., Te Grotenhuis, M. & Pelzer, B. \emph{Influential cases in multi-level modeling. A methodological comment on 'National context, religiosity, and volunteering' by Ruiter and De Graaf}. Current status: Accepted for publication in the American Sociological Review.
 }
 
 \author{Rense Nieuwenhuis, Ben Pelzer, Manfred te Grotenhuis}

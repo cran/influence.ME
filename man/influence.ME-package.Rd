@@ -4,19 +4,19 @@
 \docType{package}
 
 \title{
-Influence.ME: Tools for recognizing influential data in mixed models
+Influence.ME: Tools for detecting influential data in mixed effects models
 }
 
 \description{
-influence.ME calculates measures of influence for mixed effects models. The basic rationale behind measuring influential cases is that when iteratively single units are omitted from the data, models based on these data should not produce substantially different estimates. To standardize the assessment of how influential a (single group of) observation(s) is, several measures of influence are common practice. First, DFBETAS is a standardized measure of the absolute difference between the estimate with a particular case included and the estimate without that particular case. Second, Cook's distance provides an overall measurement of the change in all parameter estimates, or a selection thereof. 
+influence.ME calculates measures of influence for mixed effects models estimated with lme4. The basic rationale behind measuring influential cases is that when iteratively single units are omitted from the data, models based on these data should not produce substantially different estimates. To standardize the assessment of how influential a (single group of) observation(s) is, several measures of influence are common practice. First, DFBETAS is a standardized measure of the absolute difference between the estimate with a particular case included and the estimate without that particular case. Second, Cook's distance provides an overall measurement of the change in all parameter estimates, or a selection thereof. 
 }
 
 \details{
 \tabular{ll}{
 Package: \tab influence.ME\cr
 Type: \tab Package\cr
-Version: \tab 0.6.1\cr
-Date: \tab 2009-04-27\cr
+Version: \tab 0.7\cr
+Date: \tab 2009-07-06\cr
 License: \tab GPL-3\cr
 LazyLoad: \tab yes\cr
 }
@@ -34,7 +34,7 @@ Belsley, D.A., Kuh, E. & Welsch, R.E. (1980). \emph{Regression Diagnostics. Iden
 
 Snijders, T.A. & Bosker, R.J. (1999). \emph{Multilevel Analysis, an introduction to basic and advanced multilevel modeling}. Sage. 
 
-Van Der Meer, T., Te Grotenhuis, M. & Pelzer, B. \emph{Influential cases in multi-level modeling. A methodological comment on 'National context, religiosity, and volunteering' by Ruiter and De Graaf}. Current status: accepted for publication by the American Sociological Review.
+Van Der Meer, T., Te Grotenhuis, M. & Pelzer, B. \emph{Influential cases in multi-level modeling. A methodological comment on 'National context, religiosity, and volunteering' by Ruiter and De Graaf}. Current status: Accepted for publication in the American Sociological Review.
 }
 
 \keyword{package}
@@ -50,13 +50,13 @@ Van Der Meer, T., Te Grotenhuis, M. & Pelzer, B. \emph{Influential cases in mult
  data(school23)
  model.a <- lmer(math ~ structure + SES  + (1 | school.ID), data=school23)
  alt.est.a <- estex(model.a, "school.ID")
- ME.cook(alt.est.a, plot=TRUE, tol=.35)
+ ME.cook(alt.est.a, plot=TRUE, tol=.17)
  
  model.b <- exclude.influence(model.a, "school.ID", "7472")
  alt.est.b <- estex(model.b, "school.ID")
- ME.cook(alt.est.b, plot=TRUE, tol=.36)
+ ME.cook(alt.est.b, plot=TRUE, tol=.18)
 
  model.c <- exclude.influence(model.b, "school.ID", "54344")
  alt.est.c <- estex(model.c, "school.ID")
- ME.cook(alt.est.c, plot=TRUE, tol=.38)
+ ME.cook(alt.est.c, plot=TRUE, tol=.19)
 }

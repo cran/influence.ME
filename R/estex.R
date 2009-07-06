@@ -1,5 +1,5 @@
 `estex` <-
-function(model, group, select=0, gf="single", count=FALSE, ...)
+function(model, group, select=0, gf="single", count=FALSE, delete=FALSE, ...)
 	   {
 		   # Defining Internal Variables
 		   data.adapted <- model.frame(model)
@@ -45,7 +45,7 @@ function(model, group, select=0, gf="single", count=FALSE, ...)
 		   
 				   if(count == TRUE) {print(n.groups + 1 - i)}
 				   
-				   model.updated <- exclude.influence(model, group, grouping.names[i], gf=gf)
+				   model.updated <- exclude.influence(model, group, grouping.names[i], gf=gf, delete=delete)
 				   altered.no.estex <- which(substr(names(fixef(model.updated)), 1,6) != "estex.")
 				   
 				   alt.fixed[i,] <- as.matrix(fixef(model.updated)[altered.no.estex])
@@ -58,7 +58,7 @@ function(model, group, select=0, gf="single", count=FALSE, ...)
 		   if(select[1] != 0)
 			   {
 				   
-				   model.updated <- exclude.influence(model, group, select, gf=gf)
+				   model.updated <- exclude.influence(model, group, select, gf=gf, delete=delete)
 				   altered.no.estex <- which(substr(names(fixef(model.updated)), 1,6) != "estex.")
 				   
 				# Defining and naming the output elements

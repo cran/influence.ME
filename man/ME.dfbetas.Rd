@@ -11,7 +11,7 @@ ME.dfbetas(estex, parameters = 0, plot=FALSE, sort=FALSE, to.sort=NA, abs=FALSE,
 
 \arguments{
   \item{estex}{An object as returned by the estex() function, containing the altered estimates of a mixed effects regression model}
-  \item{parameters}{Used to define a selection of parameters. If parameters=0 (default), all DFBETAS is calculated for parameters in the model}
+  \item{parameters}{Used to define a selection of parameters. If parameters=0 (default), DFBETAS is calculated for all parameters in the model}
   \item{plot}{If plot=TRUE, the results from the ME.dfbetas() function are forwarded to the dp.ME.dfbetas() function, which creates a visual representation of the values for DFBETAS}
   \item{sort}{If \code{sort=TRUE} the values of DFBETAS are ordered based on magnitude. If \code{sort=FALSE} (default) no sorting takes place.}
   \item{to.sort}{Specify on which variable the DFBETAS must be sorted. If only one variable present (either in the model, or due to the selection specified in \code{parameters}), this parameter can be omitted. If DFBETAS is calculated for multiple variables, and sort=TRUE, specification of \code{to.sort} is required, or an error is returned.}
@@ -28,7 +28,7 @@ Belsley, D.A., Kuh, E. & Welsch, R.E. (1980). \emph{Regression Diagnostics. Iden
 
 Snijders, T.A. & Bosker, R.J. (1999). \emph{Multilevel Analysis, an introduction to basic and advanced multilevel modeling}. Sage. 
 
-Van Der Meer, T., Te Grotenhuis, M. & Pelzer, B. \emph{Influential cases in multi-level modeling. A methodological comment on 'National context, religiosity, and volunteering' by Ruiter and De Graaf}. Current status: conditionally accepted by the American Sociological Review.
+Van Der Meer, T., Te Grotenhuis, M. & Pelzer, B. \emph{Influential cases in multi-level modeling. A methodological comment on 'National context, religiosity, and volunteering' by Ruiter and De Graaf}. Current status: Accepted for publication in the American Sociological Review.
 }
 
 \author{Rense Nieuwenhuis, Ben Pelzer, Manfred te Grotenhuis}
