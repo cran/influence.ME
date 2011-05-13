@@ -1,5 +1,5 @@
 `estex` <-
-function(model, group, select=0, gf="single", count=FALSE, delete=FALSE, ...)
+function(model, group, select=0, gf="single", count=FALSE, delete=TRUE, ...)
 	   {
 		   # Defining Internal Variables
 		   data.adapted <- model.frame(model)

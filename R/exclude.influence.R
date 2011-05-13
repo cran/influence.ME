@@ -1,5 +1,5 @@
 `exclude.influence` <- 
-function(model, grouping, level, gf="single", delete=FALSE)
+function(model, grouping, level, gf="single", delete=TRUE)
 {
 	data.adapted <- model.frame(model)
 	added.variables <- character()

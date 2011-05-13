@@ -15,8 +15,8 @@ influence.ME calculates measures of influence for mixed effects models estimated
 \tabular{ll}{
 Package: \tab influence.ME\cr
 Type: \tab Package\cr
-Version: \tab 0.7\cr
-Date: \tab 2009-07-06\cr
+Version: \tab 0.8\cr
+Date: \tab 2011-05-13\cr
 License: \tab GPL-3\cr
 LazyLoad: \tab yes\cr
 }
@@ -26,7 +26,7 @@ Calculating measures of influential data on a mixed effects regression model ent
 \author{
 Rense Nieuwenhuis, Ben Pelzer, Manfred te Grotenhuis
 
-Maintainer: Rense Nieuwenhuis <contact@rensenieuwenhuis.nl>
+Maintainer: Rense Nieuwenhuis <r.nieuwenhuis@utwente.nl>
 }
 
 \references{
@@ -34,7 +34,8 @@ Belsley, D.A., Kuh, E. & Welsch, R.E. (1980). \emph{Regression Diagnostics. Iden
 
 Snijders, T.A. & Bosker, R.J. (1999). \emph{Multilevel Analysis, an introduction to basic and advanced multilevel modeling}. Sage. 
 
-Van Der Meer, T., Te Grotenhuis, M. & Pelzer, B. \emph{Influential cases in multi-level modeling. A methodological comment on 'National context, religiosity, and volunteering' by Ruiter and De Graaf}. Current status: Accepted for publication in the American Sociological Review.
+Van der Meer, T., Te Grotenhuis, M., & Pelzer, B. (2010). \emph{Influential Cases in Multilevel Modeling: A Methodological Comment}. American Sociological Review, 75(1), 173-178.
+
 }
 
 \keyword{package}
@@ -50,13 +51,13 @@ Van Der Meer, T., Te Grotenhuis, M. & Pelzer, B. \emph{Influential cases in mult
  data(school23)
  model.a <- lmer(math ~ structure + SES  + (1 | school.ID), data=school23)
  alt.est.a <- estex(model.a, "school.ID")
- ME.cook(alt.est.a, plot=TRUE, tol=.17)
+ ME.cook(alt.est.a, plot=TRUE, cutoff=.17)
  
  model.b <- exclude.influence(model.a, "school.ID", "7472")
  alt.est.b <- estex(model.b, "school.ID")
- ME.cook(alt.est.b, plot=TRUE, tol=.18)
+ ME.cook(alt.est.b, plot=TRUE, cutoff=.18)
 
  model.c <- exclude.influence(model.b, "school.ID", "54344")
  alt.est.c <- estex(model.c, "school.ID")
- ME.cook(alt.est.c, plot=TRUE, tol=.19)
+ ME.cook(alt.est.c, plot=TRUE, cutoff=.19)
 }
