@@ -1,6 +1,6 @@
 `se.fixef` <-
 function(model)
 	{
-		se <- sqrt(diag(vcov(model)))
-		return(se)
+		se <- sqrt(diag(as.matrix(vcov(model))))
+		return(se)	
 	}
