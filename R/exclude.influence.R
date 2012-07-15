@@ -1,19 +1,45 @@
 `exclude.influence` <- 
-function(model, grouping, level, gf="single", delete=TRUE)
+function(model, grouping=NULL, level=NULL, obs=NULL, gf="single", delete=TRUE)
 {
 	data.adapted <- model.frame(model)
 	added.variables <- character()
+
 	
+	
+	if(!is.null(obs))
+	{
+    
+    if(!is.null(grouping) | !is.null(level))
+    {
+      warning("Specification of the 'obs' parameter overrules specification of the 'grouping' and 'level' parameters.")
+    }
+    
+	  data.adapted <- data.adapted[-obs,]
+	  model.updated <- update(model, data=data.adapted)
+	  return(model.updated)
+	}
+  
+  
+  
+  
+  
+  
 	if(delete==TRUE)
-		{
-		## Only works when length(level) ==1, this needs to be enhanced
-		
-		group.var <- which(names(data.adapted) == grouping)
+	{
+    
+    ## Only works when length(level) ==1, this needs to be enhanced
+	 	group.var <- which(names(data.adapted) == grouping)
 		data.adapted <- subset(data.adapted, data.adapted[,group.var]!=level)
 		model.updated <- update(model, data=data.adapted)
 		return(model.updated)
-		}
+    
+	 }
 	
+  
+  
+  
+  
+  
 	if(names(data.adapted)[2] != "intercept.alt")
 		{
 

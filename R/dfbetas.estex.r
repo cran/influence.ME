@@ -1,12 +1,6 @@
-`ME.dfbetas` <-
-function(estex, parameters=0, plot=FALSE, sort=FALSE, to.sort=NA, abs=FALSE, ...) 
-	{
-		
-		if(plot==TRUE)
-			{
-			dp.ME.dfbetas(estex, parameters=parameters, sort=sort, to.sort=to.sort, abs=abs, ...)
-			}
-	
+dfbetas.estex <- function(model, parameters=0, sort=FALSE, to.sort=NA, abs=FALSE, ...) 
+{
+		estex <- model
 		n.groups <- dim(estex$alt.fixed)[1]
 		n.parameters <- dim(estex$alt.fixed)[2]
 		ifelse(parameters==0, sel <- 1:n.parameters, sel <- parameters)	
@@ -51,5 +45,5 @@ function(estex, parameters=0, plot=FALSE, sort=FALSE, to.sort=NA, abs=FALSE, ...
 			e <- e[order(e[, to.sort]), ]
 			}
 
-		return(e)
+                e
 	}

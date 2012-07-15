@@ -5,7 +5,7 @@
 \description{
   The \code{school23} data contains information on students' performance on a math test, as well as several explanatory variables. These data are subset of the NELS-88 data (National Education Longitudinal Study of 1988). Both a selected number of variables and a selected number of observations are given here.
 }
-\usage{data(school23)}
+%\usage{data(school23)}
 \format{
   A data frame with 519 observations on the following 15 variables.
   \describe{
@@ -42,6 +42,6 @@ Kreft, I. and De Leeuw, J. (1998). \emph{Introducing Multilevel Modeling}. Sage 
 
 data(school23)
 model <- lmer(math ~ structure + (1 | school.ID), data=school23)
-
+summary(model)
 }
 \keyword{datasets}

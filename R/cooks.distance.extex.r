@@ -1,12 +1,6 @@
-`ME.cook` <-
-function(estex, parameters=0, plot=FALSE, sort=FALSE, ...) 
+cooks.distance.estex <- function(model, parameters=0, sort=FALSE, ...) 
 	{
-		
-		if(plot==TRUE)
-			{
-			dp.ME.cook(estex, parameters=parameters, plot=FALSE, sort=sort, ...)
-			}
-	
+		estex <- model 
 		n.groups <- dim(estex$alt.fixed)[1]
 		n.parameters <- dim(estex$alt.fixed)[2]
 		ifelse(parameters==0, sel <- 1:n.parameters, sel <- parameters)	
@@ -41,5 +35,3 @@ function(estex, parameters=0, plot=FALSE, sort=FALSE, ...)
 			
 		return(e)
 	}
-
-

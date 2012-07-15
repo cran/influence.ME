@@ -1,20 +1,21 @@
-\name{ME.cook}
-\alias{ME.cook}
+\name{cooks.distance.estex}
+\alias{cooks.distance.estex}
+\alias{cooks.distance}
 
 \title{Compute the Cook's distance measure of influential data on mixed effects models}
 \description{
     Cook's Distance is a measure indicating to what extent model parameters are influenced by (a set of) influential data on which the model is based. This function computes the Cook's distance based on the information returned by the estex() function.
 }
+
 \usage{
-ME.cook(estex, parameters = 0, plot=FALSE, sort=FALSE, ...)
+\method{cooks.distance}{estex}(model, parameters=0, sort=FALSE, \dots)
 }
 
 \arguments{
-  \item{estex}{An object as returned by the estex() function, containing the altered estimates of a mixed effects regression model}
+  \item{model}{An object as returned by the estex() function, containing the altered estimates of a mixed effects regression model}
   \item{parameters}{Used to define a selection of parameters. If parameters=0 (default), Cook's Distance is calculated based on all parameters in the model}
-  \item{plot}{If plot=TRUE, the results from the ME.cook() function are forwarded to the dp.ME.cook() function, which creates a visual representation of the Cook's Distances.}
   \item{sort}{If \code{sort=TRUE} the values of Cook's Distance are ordered based on magnitude. If \code{sort=FALSE} (default) no sorting takes place.}
-  \item{\dots}{Further arguments passed on to the dp.ME.cook() function.}
+  \item{\dots}{Currently not used}
 }
 
 \value{
@@ -31,15 +32,15 @@ Van der Meer, T., Te Grotenhuis, M., & Pelzer, B. (2010). \emph{Influential Case
 
 \author{Rense Nieuwenhuis, Ben Pelzer, Manfred te Grotenhuis}
 
-\seealso{\code{\link{estex}}, \code{\link{ME.dfbetas}}, \code{\link{dp.ME.cook}}}
+\seealso{\code{\link{influence}}, \code{\link{dfbetas}}}
 
 \examples{
  data(school23)
  model <- lmer(math ~ structure + SES  + (1 | school.ID), data=school23)
 
- alt.est <- estex(model, "school.ID")
- ME.cook(alt.est)
- ME.cook(alt.est, plot=TRUE, cutoff=.17)
+ alt.est <- influence(model, group="school.ID")
+ cooks.distance(alt.est)
+
 }
 
 \keyword{robust}

@@ -1,19 +1,22 @@
-\name{estex}
-\alias{estex}
+\name{influence.mer}
+\alias{influence.mer}
+\alias{influence}
 
-\title{Estex returns mixed model estimates, iteratively excluding the influence of data nested within single grouping factors.}
+\title{influence returns mixed model estimates, iteratively excluding the influence of data nested within single grouping factors.}
 \description{
-   estex() is the workhorse function of the influence.ME package. Based on a priorly estimated mixed effects regression model (estimated using lme4), the estex() function iteratively modifies the mixed effects model to neutralize the effect a grouped set of data has on the parameters, and which returns returns the fixed parameters of these iteratively modified models. These are used to compute measures of influential data.
+   influence() is the workhorse function of the influence.ME package. Based on a priorly estimated mixed effects regression model (estimated using lme4), the influence() function iteratively modifies the mixed effects model to neutralize the effect a grouped set of data has on the parameters, and which returns returns the fixed parameters of these iteratively modified models. These are used to compute measures of influential data.
 }
 
 \usage{
-estex(model, group, select = 0, gf="single", count = FALSE, delete=TRUE, ...)
+\method{influence}{mer}(model, group=NULL, select=NULL, obs=FALSE, gf="single", count = FALSE, delete=TRUE, \dots)
 }
 
 \arguments{
-  \item{model}{Mixed effects model of class 'mer'}
+  \item{model}{Mixed effects model of class 'mer'.  For the
+  \code{\link{cooks.distance}} and \code{\link{dfbetas}} methods, this is an \code{estex} object.}
   \item{group}{Grouping factor in model of which iteratively levels are neutralized}
   \item{select}{Defines the selection of grouping factors that should be omitted. Defaults to 0, resulting in each level of the grouping factor being omitted iteratively. When a selection is defined, model parameters for the full model, and the altered model are returned. The selection can be a vector of multiple levels of the grouping factor.}
+  \item{obs}{If obs=TRUE, single observations - rather than groups - are deleted from the model.}
   \item{gf}{Indicates from which of the model's grouping factors the influence of the specified grouping factor is to be neutralized. If \code{gf="single"} (default), the levels of the specified grouping factor are only neutralized regarding the grouping factor specified in \code{group}. In its present form, \code{gf="single"} only works on mixed models with a maximum of 2 grouping factors. If \code{gf="all"}, the influence from the levels of \code{group} is neutralized regarding all grouping factors in the model. This option only applies to models with more than a single grouping factor.}
   \item{count}{If count=TRUE, the remaining number of grouping factors that still need to be omitted are printed.}
   \item{delete}{If delete=TRUE (default), the influence is excluded by simply deleting the observations nested within the higher level group. If delete=FALSE, the influence of higher level groups is excluded from the model by setting the intercept-vector for the observations nested within these groups to 0, and by adding a dummy-variable indicating these observations (Langford and Lewis, 1998). This latter option currently does not work with models that include factor variables.}
@@ -23,7 +26,7 @@ estex(model, group, select = 0, gf="single", count = FALSE, delete=TRUE, ...)
 \details{
   The basic rationale behind measuring influential cases is that when iteratively single units are omitted from the data, models based on these data should not produce substantially different estimates. To apply this logic to mixed effects models one has to measure the influence of a particular higher level unit on the estimates of a higher level predictor. This means that the mixed effects model has to be adjusted to neutralize the unit's influence on that estimate, while at the same time allowing the unit's lower-level cases to help estimate the effects of the lower-level predictors in the model. This procedure is based on a modification of the intercept and the addition of a dummy variable for the cases that might be influential.
   
-  estex() is the workhorse function of this likewise called package. Based on a priorly estimated mixed effects regression model (of the 'mer' class), the estex() function iteratively modifies the mixed effects model by neutralizing the effect a grouped set of data has on the parameters, and which returns returns the fixed parameters of these iteratively modified models. 
+  influence() is the workhorse function of this likewise called package. Based on a priorly estimated mixed effects regression model (of the 'mer' class), the influence() function iteratively modifies the mixed effects model by neutralizing the effect a grouped set of data has on the parameters, and which returns returns the fixed parameters of these iteratively modified models. 
   
   The returned object (see 'value') contains information which is required for functions computing various measures of influential data.
 }
@@ -59,25 +62,24 @@ Also, it is required that the \code{mer} model was estimated using a factor vari
 
 Since estex() entails the re-estimation of the provided mixed effects model for each level of the specified grouping factor (after alteration of the data), executing this procedure can be computationally highly demanding. 
 
-To facilitate the use of estex() with more complex models (i.e. models based on large amounts of data and / or with a large number of groups.
 }
 
 \seealso{
-\code{\link{ME.dfbetas}}, \code{\link{ME.cook}}
+\code{\link{cooks.distance.estex}}, \code{\link{dfbetas.estex}}
 }
 
 \examples{
  data(school23)
  model.a <- lmer(math ~ structure + SES  + (1 | school.ID), data=school23)
- alt.est.a <- estex(model.a, "school.ID")
- alt.est.b <- estex(model.a, "school.ID", "7472")
- alt.est.c <- estex(model.a, "school.ID", c("7472", "62821"))
+ alt.est.a <- influence(model=model.a, group="school.ID")
+ alt.est.b <- influence(model=model.a, group="school.ID", select="7472")
+ alt.est.c <- influence(model=model.a, group="school.ID", select=c("7472", "62821"))
  
- data(Penicillin)
+ data(Penicillin, package="lme4")
  model.b <- lmer(diameter ~ (1|plate) + (1|sample), Penicillin)
- alt.est.d <- estex(model.b, "plate")
- alt.est.e <- estex(model.b, "sample")
- alt.est.f <- estex(model.b, "sample", gf="all")
+ alt.est.d <- influence(model=model.b, group="plate")
+ alt.est.e <- influence(model=model.b, group="sample")
+ alt.est.f <- influence(model=model.b, group="sample", gf="all")
 }
 
 \keyword{robust}

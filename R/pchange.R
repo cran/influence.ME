@@ -1,12 +1,7 @@
-`ME.pchange` <- 
-function(estex, parameters=0, plot=FALSE, sort=FALSE, to.sort=NA, abs=FALSE, ...)
+pchange <- 
+function(estex, parameters=0, sort=FALSE, to.sort=NA, abs=FALSE)
 	{
-	
-		if(plot==TRUE)
-			{
-			dp.ME.pchange(estex, parameters=parameters, sort=sort, to.sort=to.sort, abs=abs, ...)
-			}
-			
+
 		n.groups <- dim(estex$alt.fixed)[1]
 		n.parameters <- dim(estex$alt.fixed)[2]
 		ifelse(parameters==0, sel <- 1:n.parameters, sel <- parameters)	

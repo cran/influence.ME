@@ -1,6 +1,5 @@
-`se.fixef` <-
-function(model)
-	{
-		se <- sqrt(diag(as.matrix(vcov(model))))
-		return(se)	
-	}
+se.fixef <- function(model) {
+    stopifnot(is(model, "mer"))
+    sqrt(diag(vcov(model)))
+}
+

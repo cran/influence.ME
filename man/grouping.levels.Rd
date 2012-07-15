@@ -3,7 +3,7 @@
 \title{Returns the levels of a grouping factor in a mixed effects regression model}
 
 \description{
-Helper function returning all the levels of a grouping factor in a mixed effects regression model. This is used in combination with the influence.ME function, the divide long runs into multiple shorter ones.
+Helper function returning all the levels of a grouping factor in a mixed effects regression model. 
 }
 
 \usage{

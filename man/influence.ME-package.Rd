@@ -15,12 +15,12 @@ influence.ME calculates measures of influence for mixed effects models estimated
 \tabular{ll}{
 Package: \tab influence.ME\cr
 Type: \tab Package\cr
-Version: \tab 0.8\cr
-Date: \tab 2011-05-13\cr
+Version: \tab 0.9\cr
+Date: \tab 2012-07-15\cr
 License: \tab GPL-3\cr
 LazyLoad: \tab yes\cr
 }
-Calculating measures of influential data on a mixed effects regression model entails the re-estimation of this model for each set of potentially influential data separately. The estex() function does this, and returns the altered estimates resulting from each re-estimation. These altered estimates can subsequently be entered to the ME.cook() and ME.dfbetas() functions, to calculate Cook's Distance and the DFBETAS (standardized difference of the beta) measures.
+Calculating measures of influential data on a mixed effects regression model entails the re-estimation of this model for each set of potentially influential data separately. The estex() function does this, and returns the altered estimates resulting from each re-estimation. These altered estimates can subsequently be entered to the \code{\link{cooks.distance}} and \code{\link{dfbetas}} methods, to calculate Cook's Distance and the DFBETAS (standardized difference of the beta) measures.
 }
 
 \author{
@@ -44,20 +44,24 @@ Van der Meer, T., Te Grotenhuis, M., & Pelzer, B. (2010). \emph{Influential Case
 \keyword{regression}
 
 \seealso{
-\code{\link{estex}}, \code{\link{exclude.influence}}, \code{\link{ME.cook}}, \code{\link{ME.dfbetas}}, \code{\link{ME.pchange}}
+\code{\link{influence}},
+\code{\link{cooks.distance.estex}}, \code{\link{dfbetas.estex}}, 
+\code{\link{pchange}}, \code{\link{sigtest}}
 }
 
 \examples{
- data(school23)
- model.a <- lmer(math ~ structure + SES  + (1 | school.ID), data=school23)
- alt.est.a <- estex(model.a, "school.ID")
- ME.cook(alt.est.a, plot=TRUE, cutoff=.17)
- 
- model.b <- exclude.influence(model.a, "school.ID", "7472")
- alt.est.b <- estex(model.b, "school.ID")
- ME.cook(alt.est.b, plot=TRUE, cutoff=.18)
+data(school23)
 
- model.c <- exclude.influence(model.b, "school.ID", "54344")
- alt.est.c <- estex(model.c, "school.ID")
- ME.cook(alt.est.c, plot=TRUE, cutoff=.19)
+model.a <- lmer(math ~ structure + SES  + (1 | school.ID), data=school23)
+alt.est.a <- influence(model.a, "school.ID")
+ 
+model.b <- exclude.influence(model.a, "school.ID", "7472")
+alt.est.b <- influence(model.b, "school.ID")
+
+cooks.distance(alt.est.b)
+
+model.c <- exclude.influence(model.b, "school.ID", "54344")
+alt.est.c <- influence(model.c, "school.ID")
+
+cooks.distance(alt.est.c)
 }
