@@ -15,8 +15,8 @@ influence.ME calculates measures of influence for mixed effects models estimated
 \tabular{ll}{
 Package: \tab influence.ME\cr
 Type: \tab Package\cr
-Version: \tab 0.9.1\cr
-Date: \tab 2012-12-24\cr
+Version: \tab 0.9.2\cr
+Date: \tab 2013-01-15\cr
 License: \tab GPL-3\cr
 LazyLoad: \tab yes\cr
 }

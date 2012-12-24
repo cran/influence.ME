@@ -1,4 +1,4 @@
-a53b028b3c7d55f4d467e0a32403f867 *DESCRIPTION
+d8621a2c1fca58bd3d2ffa25aa2fe3ca *DESCRIPTION
 57fb0e66b4c48c23c3d47bb390deddef *NAMESPACE
 23cd30b634d314adbfccdee3eb4ad6c1 *R/cooks.distance.extex.r
 583c497e8174694a28031f5652389595 *R/dfbetas.estex.r
@@ -15,7 +15,7 @@ b4dce9244c7529d0dc786309dd734eb1 *man/cooks.distance.estex.Rd
 70b023d67f9b6e822d21b71dc95a392c *man/dfbetas.estex.Rd
 6611ff4b965c5ee04e83c6cc78686d81 *man/exclude.influence.Rd
 85279a57f109e7263fe347e6766b03bc *man/grouping.levels.Rd
-158a53bb23c3a7da211c5b5cef33da84 *man/influence.ME-package.Rd
+fb034bf8ec541e9975b29bd049111529 *man/influence.ME-package.Rd
 274a18630a2484f51bf44e4b7ea97143 *man/influence.mer.Rd
 e5036d98c1ac887762bf603d9127f5e9 *man/pchange.Rd
 49c5835b81b4e2cee310f7f743f84688 *man/plot.estex.Rd
