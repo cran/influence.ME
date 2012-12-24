@@ -1,12 +1,18 @@
-# Default NAMESPACE created by R
-# Remove the previous line if you edit this file
-
-# Export all names
-exportPattern(".")
-
-# Import all packages listed as Imports or Depends
-import(
-  Matrix,
-  lme4,
-  lattice
-)
+importFrom("Matrix",
+           diag)                        # need the S4 generic in se.fixef
+importFrom("stats",
+           dfbetas,
+           cooks.distance)
+importFrom("lme4",
+			summary)
+export(cooks.distance.estex, 
+       dfbetas.estex,
+       pchange,
+       sigtest,
+       influence,
+       exclude.influence,
+	   grouping.levels,
+	   se.fixef)
+S3method(dfbetas, estex)
+S3method(cooks.distance, estex)
+S3method(plot, estex)

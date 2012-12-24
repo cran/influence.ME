@@ -29,7 +29,10 @@ function(model, grouping=NULL, level=NULL, obs=NULL, gf="single", delete=TRUE)
     
     ## Only works when length(level) ==1, this needs to be enhanced
 	 	group.var <- which(names(data.adapted) == grouping)
-		data.adapted <- subset(data.adapted, data.adapted[,group.var]!=level)
+		for (i in 1:length(level))
+			{
+			data.adapted <- subset(data.adapted, data.adapted[,group.var]!=level[i])
+			}
 		model.updated <- update(model, data=data.adapted)
 		return(model.updated)
     

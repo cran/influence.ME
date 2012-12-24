@@ -1,11 +1,10 @@
 plot.estex <- function(x, which="dfbetas",
 						sort=FALSE, to.sort=NA, abs=FALSE, cutoff=0,
 						parameters=seq_len(ncol(estex$alt.fixed)),
-                       groups=seq_len(nrow(estex$alt.fixed)), ...)
+                        groups=seq_len(nrow(estex$alt.fixed)), ...)
 {
-
 	estex <- x
-
+	
 	# Define a panel function only to be used in this plot.estex function
 	estex.dotplot <- function(x,y,...,subscripts,col,pch) 
 	{

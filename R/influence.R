@@ -1,9 +1,9 @@
-influence.mer <-
-  function(model, group=NULL, select=NULL, obs=FALSE, gf="single", count=FALSE, delete=TRUE, ...)
+`influence` <-
+  function(model, group=NULL, select=NULL, obs=FALSE, gf="single", count = FALSE, delete=TRUE, ...)
   {
-    
+
     ## Checks, errors, and warnings
-    # obs=TRUE cannot be used with delete=FALSe, group, gf,  parameters
+    # obs=TRUE cannot be used with delete=FALSE, group, gf,  parameters
     
     if(is.null(group) & !obs)
     {
@@ -53,8 +53,9 @@ influence.mer <-
       names(fixef(model)[original.no.estex]))
     
     # Test statistic of the original model
-    or.test <- summary(model)@coefs[,3][original.no.estex]
+    or.test <- coef(summary(model))[original.no.estex,3]
     
+
     ###
     # Defining and naming the output elements for the adapted models
     ###
@@ -94,7 +95,7 @@ influence.mer <-
           alt.fixed[i,] 	<- as.matrix(fixef(model.updated)[altered.no.estex])
           alt.se[i,] 		<- as.matrix(se.fixef(model.updated)[altered.no.estex])
           alt.vcov[[i]] 	<- as.matrix(vcov(model.updated)[altered.no.estex, altered.no.estex])
-          alt.test[i,] 		<- as.matrix(summary(model.updated)@coefs[,3][altered.no.estex])
+          alt.test[i,] 		<- as.matrix(coef(summary(model.updated))[,3][altered.no.estex])
         }
         
        
@@ -125,7 +126,7 @@ influence.mer <-
           names(fixef(model.updated)[altered.no.estex]))
           
         # Test statistic of the modified model(s)
-        alt.test <- matrix(ncol = n.pred , nrow = 1, data = summary(model.updated)@coefs[,3][altered.no.estex])
+        alt.test <- matrix(ncol = n.pred , nrow = 1, data = coef(summary(model.updated))[,3][altered.no.estex])
         dimnames(alt.test) <- list("Altered model", names(fixef(model.updated))[altered.no.estex])
        
       }
@@ -163,7 +164,7 @@ influence.mer <-
           alt.fixed[i,] 	<- as.matrix(fixef(model.updated)[altered.no.estex])
           alt.se[i,] 		<- as.matrix(se.fixef(model.updated)[altered.no.estex])
           alt.vcov[[i]] 	<- as.matrix(vcov(model.updated)[altered.no.estex, altered.no.estex])
-          alt.test[i,]	 	<- as.matrix(summary(model.updated)@coefs[,3][altered.no.estex])
+          alt.test[i,]	 	<- as.matrix(coef(summary(model.updated))[,3][altered.no.estex])
         } 
         
         
@@ -192,10 +193,11 @@ influence.mer <-
           names(fixef(model.updated)[altered.no.estex]))
           
         # Test statistic of the modified model(s)
-        alt.test <- matrix(ncol = n.pred , nrow = 1, data = summary(model.updated)@coefs[,3][altered.no.estex])
+        alt.test <- matrix(ncol = n.pred , nrow = 1, data = coef(summary(model.updated))[,3][altered.no.estex])
         dimnames(alt.test) <- list("Altered model", names(fixef(model.updated))[altered.no.estex])
   
       }
+      
       
       
     }
@@ -215,3 +217,6 @@ influence.mer <-
     return(estex)
     
   }
+
+
+

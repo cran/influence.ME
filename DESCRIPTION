@@ -1,8 +1,8 @@
 Package: influence.ME
 Type: Package
 Title: Tools for detecting influential data in mixed effects models
-Version: 0.9
-Date: 2012-07-15
+Version: 0.9.1
+Date: 2012-12-24
 Author: Rense Nieuwenhuis, Ben Pelzer, Manfred te Grotenhuis
 Maintainer: Rense Nieuwenhuis <r.nieuwenhuis@utwente.nl>
 Description: influence.ME provides a collection of tools for
@@ -14,7 +14,7 @@ Description: influence.ME provides a collection of tools for
         substantially different estimates. To standardize the
         assessment of how influential a (single group of)
         observation(s) is, several measures of influence are common
-        practice, such as DFBETAS and Cooks' Distance. In addition, we
+        practice, such as DFBETAS and Cooks' Distance.  In addition, we
         provide a measure of percentage change of the fixed point
         estimates and a simple test to detect changing levels of
         significance.
@@ -24,6 +24,6 @@ Depends: lme4, lattice
 Imports: Matrix(>= 1.0)
 LazyLoad: yes
 LazyData: yes
+Packaged: 2012-12-24 10:46:53 UTC; nieuwenhuisrr
 Repository: CRAN
-Packaged: 2012-07-12 13:11:27 UTC; Rense
-Date/Publication: 2012-07-12 14:37:23
+Date/Publication: 2012-12-24 12:01:58

@@ -7,7 +7,7 @@
   DFBETAS (standardized difference of the beta) is a measure that standardizes the absolute difference in parameter estimates between a (mixed effects) regression model based on a full set of data, and a model from which a (potentially influential) subset of data is removed. A value for DFBETAS is calculated for each parameter in the model separately. This function computes the DFBETAS based on the information returned by the estex() function.
 }
 \usage{
-\method{dfbetas}{estex}(model, parameters = 0, sort=FALSE, to.sort=NA, abs=FALSE, \dots)
+\method{dfbetas}{estex}(model, parameters = 0, sort=FALSE, to.sort=NA, abs=FALSE, ...)
 }
 
 \arguments{

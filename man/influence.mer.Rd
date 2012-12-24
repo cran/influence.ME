@@ -1,6 +1,6 @@
 \name{influence.mer}
-\alias{influence.mer}
 \alias{influence}
+\alias{influence.mer}
 
 \title{influence returns mixed model estimates, iteratively excluding the influence of data nested within single grouping factors.}
 \description{
@@ -8,7 +8,7 @@
 }
 
 \usage{
-\method{influence}{mer}(model, group=NULL, select=NULL, obs=FALSE, gf="single", count = FALSE, delete=TRUE, \dots)
+influence(model, group=NULL, select=NULL, obs=FALSE, gf="single", count = FALSE, delete=TRUE, \dots)
 }
 
 \arguments{

@@ -1,6 +1,7 @@
 dfbetas.estex <- function(model, parameters=0, sort=FALSE, to.sort=NA, abs=FALSE, ...) 
 {
 		estex <- model
+		
 		n.groups <- dim(estex$alt.fixed)[1]
 		n.parameters <- dim(estex$alt.fixed)[2]
 		ifelse(parameters==0, sel <- 1:n.parameters, sel <- parameters)	
