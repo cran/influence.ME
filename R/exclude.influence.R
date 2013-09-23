@@ -27,7 +27,7 @@ function(model, grouping=NULL, level=NULL, obs=NULL, gf="single", delete=TRUE)
 	if(delete==TRUE)
 	{
     
-    ## Only works when length(level) ==1, this needs to be enhanced
+    ## Only works when length(level) == 1, this needs to be enhanced
 	 	group.var <- which(names(data.adapted) == grouping)
 		for (i in 1:length(level))
 			{
@@ -46,10 +46,10 @@ function(model, grouping=NULL, level=NULL, obs=NULL, gf="single", delete=TRUE)
 	if(names(data.adapted)[2] != "intercept.alt")
 		{
 
-		data.adapted$intercept.alt <- ifelse(model@flist[,grouping]==level[1], 0, 1)
+		data.adapted$intercept.alt <- ifelse(model@flist[[grouping]]==level[1], 0, 1)
 
 		data.adapted[, ncol(data.adapted)+1] <- 
-			ifelse(model@flist[,grouping]==level[1], 1, 0)
+			ifelse(model@flist[[grouping]]==level[1], 1, 0)
 		
 		added.variables <- make.names(paste("estex.", as.character(level[1]), sep=""))
 		colnames(data.adapted)[ncol(data.adapted)] <- added.variables
@@ -60,10 +60,10 @@ function(model, grouping=NULL, level=NULL, obs=NULL, gf="single", delete=TRUE)
 			for (i in 2:length(level))
   				{
 				
-				data.adapted$intercept.alt[model@flist[,grouping]==level[i]] <- 0
+				data.adapted$intercept.alt[model@flist[[grouping]]==level[i]] <- 0
 				
 				data.adapted[, ncol(data.adapted)+1] <- 
-					ifelse(model@flist[,grouping]==level[i], 1, 0)
+					ifelse(model@flist[[grouping]]==level[i], 1, 0)
 		
 				added.variables <- append(added.variables, values = make.names(paste("estex.", as.character(level[i]), sep="")))
 				
@@ -167,10 +167,10 @@ function(model, grouping=NULL, level=NULL, obs=NULL, gf="single", delete=TRUE)
   		
   		for (i in 1:length(level))
   			{
-				data.adapted$intercept.alt[model@flist[,grouping]==level[i]] <- 0
+				data.adapted$intercept.alt[model@flist[[grouping]]==level[i]] <- 0
 				
 				data.adapted[, ncol(data.adapted)+1] <- 
-					ifelse(model@flist[,grouping]==level[i], 1, 0)
+					ifelse(model@flist[[grouping]]==level[i], 1, 0)
 		
 				added.variables <- append(added.variables, values = make.names(paste("estex.", as.character(level[i]), sep="")))
 				

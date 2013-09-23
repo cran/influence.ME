@@ -8,7 +8,8 @@
 }
 
 \usage{
-influence(model, group=NULL, select=NULL, obs=FALSE, gf="single", count = FALSE, delete=TRUE, \dots)
+influence(model, group=NULL, select=NULL, obs=FALSE, 
+	gf="single", count = FALSE, delete=TRUE, \dots)
 }
 
 \arguments{

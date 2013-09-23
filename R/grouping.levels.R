@@ -1,7 +1,7 @@
 `grouping.levels` <-
 function(model, group)
 {
-	grouping.original <- model@flist[,which(names(model@flist)==group)]
+	grouping.original <- model@flist[[group]]
 	grouping.names <- levels(grouping.original)
 	return(grouping.names)
 }

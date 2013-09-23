@@ -3,8 +3,10 @@ importFrom("Matrix",
 importFrom("stats",
            dfbetas,
            cooks.distance)
+importFrom("lattice",
+			dotplot)
 importFrom("lme4",
-			summary)
+			lmer)		
 export(cooks.distance.estex, 
        dfbetas.estex,
        pchange,
@@ -12,7 +14,8 @@ export(cooks.distance.estex,
        influence,
        exclude.influence,
 	   grouping.levels,
-	   se.fixef)
+	   se.fixef,
+	   plot.estex)
 S3method(dfbetas, estex)
 S3method(cooks.distance, estex)
 S3method(plot, estex)

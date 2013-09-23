@@ -1,13 +1,13 @@
-d8621a2c1fca58bd3d2ffa25aa2fe3ca *DESCRIPTION
-57fb0e66b4c48c23c3d47bb390deddef *NAMESPACE
+f1eacfd9e236a8eb8f048ed4c20f5a49 *DESCRIPTION
+795a90eb736f2f1548b88c84cd817eda *NAMESPACE
 23cd30b634d314adbfccdee3eb4ad6c1 *R/cooks.distance.extex.r
 583c497e8174694a28031f5652389595 *R/dfbetas.estex.r
-c2d4f8fa0998e23a78942aa7f824bdb0 *R/exclude.influence.R
-0666be046a7f3e451e87938161c2b338 *R/grouping.levels.R
+03f50bc15922791ec19cfb7b4f144042 *R/exclude.influence.R
+3ff2cdc1b8be515df4d99c386588d9ba *R/grouping.levels.R
 1aaa17048e90f7795d2df18f16bf7fbb *R/influence.R
 0e135a243a10595da7d3bb4c345eb747 *R/pchange.R
 bd42a80273b40660c185c759580f9f9e *R/plot.estex.R
-054369eb290cadf160395c343b700ab9 *R/se.fixef.R
+70911da37c8c47eade2ac0e3f19cf0c4 *R/se.fixef.R
 b984166eb8af7a08d38f43a46cd03d10 *R/sigtest.R
 36a4f0fd543e04292c233afd44c2ad82 *data/school23.rda
 415ce29d791a080335dbafadb013a1e6 *inst/CITATION
@@ -16,7 +16,7 @@ b4dce9244c7529d0dc786309dd734eb1 *man/cooks.distance.estex.Rd
 6611ff4b965c5ee04e83c6cc78686d81 *man/exclude.influence.Rd
 85279a57f109e7263fe347e6766b03bc *man/grouping.levels.Rd
 fb034bf8ec541e9975b29bd049111529 *man/influence.ME-package.Rd
-274a18630a2484f51bf44e4b7ea97143 *man/influence.mer.Rd
+ec589446a8aa39b11b8c93c47fe31282 *man/influence.mer.Rd
 e5036d98c1ac887762bf603d9127f5e9 *man/pchange.Rd
 49c5835b81b4e2cee310f7f743f84688 *man/plot.estex.Rd
 354ec7ee023f2cef614d6d352e0afe8b *man/school23.Rd
