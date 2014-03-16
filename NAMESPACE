@@ -3,8 +3,8 @@ importFrom("Matrix",
 importFrom("stats",
            dfbetas,
            cooks.distance)
-importFrom("lattice",
-			dotplot)
+importFrom("lattice", 
+			dotplot, panel.dotplot)
 importFrom("lme4",
 			lmer)		
 export(cooks.distance.estex, 
