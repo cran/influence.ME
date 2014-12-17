@@ -3,7 +3,21 @@ function(model, grouping=NULL, level=NULL, obs=NULL, gf="single", delete=TRUE)
 {
 	data.adapted <- model.frame(model)
 	added.variables <- character()
+	ranef <- NA
+	rm(ranef)
 
+	####
+	# Code kindly provided by Jennifer Bufford
+	if("(weights)" %in% names(data.adapted)) {
+    names(data.adapted)[names(data.adapted)=="(weights)"] <-
+    as.character(model@call$weights)}
+    if("(offset)" %in% names(data.adapted)) {
+    names(data.adapted)[names(data.adapted)=="(offset)"] <-
+    as.character(model@call$offset)}
+    if(sum(grepl("offset", names(data.adapted)))>0) {
+    names(data.adapted)[grep("offset", names(data.adapted))] <-
+    gsub('offset\\(|\\)',"",names(data.adapted)[grep("offset", names(data.adapted))])}
+	####
 	
 	
 	if(!is.null(obs))

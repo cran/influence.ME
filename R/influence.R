@@ -2,6 +2,9 @@
   function(model, group=NULL, select=NULL, obs=FALSE, gf="single", count = FALSE, delete=TRUE, ...)
   {
 
+	fixef <- NA
+	rm(fixef)
+
     ## Checks, errors, and warnings
     # obs=TRUE cannot be used with delete=FALSE, group, gf,  parameters
     
@@ -20,6 +23,22 @@
     data.adapted <- model.frame(model)
     original.no.estex <- which(substr(names(fixef(model)), 1,6) != "estex.")
     n.pred <- length(fixef(model)[original.no.estex])
+    
+    
+    ####
+	# Code kindly provided by Jennifer Bufford
+	if("(weights)" %in% names(data.adapted)) {
+    names(data.adapted)[names(data.adapted)=="(weights)"] <-
+    as.character(model@call$weights)}
+    if("(offset)" %in% names(data.adapted)) {
+    names(data.adapted)[names(data.adapted)=="(offset)"] <-
+    as.character(model@call$offset)}
+    if(sum(grepl("offset", names(data.adapted)))>0) {
+    names(data.adapted)[grep("offset", names(data.adapted))] <-
+    gsub('offset\\(|\\)',"",names(data.adapted)[grep("offset", names(data.adapted))])}
+	####
+    
+    
     
     if(!obs)
     {

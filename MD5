@@ -1,10 +1,10 @@
-ddabedd035378409b0622bc74f794f24 *DESCRIPTION
+d64323eb6793df076fa35610dc3dbb81 *DESCRIPTION
 06a8384db476c1cbc070fe5064d8e170 *NAMESPACE
 23cd30b634d314adbfccdee3eb4ad6c1 *R/cooks.distance.extex.r
 583c497e8174694a28031f5652389595 *R/dfbetas.estex.r
-03f50bc15922791ec19cfb7b4f144042 *R/exclude.influence.R
+11bf35aa776e54ebb9b4fe1db22c7c4f *R/exclude.influence.R
 3ff2cdc1b8be515df4d99c386588d9ba *R/grouping.levels.R
-1aaa17048e90f7795d2df18f16bf7fbb *R/influence.R
+182dbc75bbb8df714a55116929244144 *R/influence.R
 0e135a243a10595da7d3bb4c345eb747 *R/pchange.R
 bd42a80273b40660c185c759580f9f9e *R/plot.estex.R
 70911da37c8c47eade2ac0e3f19cf0c4 *R/se.fixef.R
