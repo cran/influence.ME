@@ -20,7 +20,7 @@ Date: \tab 2013-01-15\cr
 License: \tab GPL-3\cr
 LazyLoad: \tab yes\cr
 }
-Calculating measures of influential data on a mixed effects regression model entails the re-estimation of this model for each set of potentially influential data separately. The estex() function does this, and returns the altered estimates resulting from each re-estimation. These altered estimates can subsequently be entered to the \code{\link{cooks.distance}} and \code{\link{dfbetas}} methods, to calculate Cook's Distance and the DFBETAS (standardized difference of the beta) measures.
+Calculating measures of influential data on a mixed effects regression model entails the re-estimation of this model for each set of potentially influential data separately. The influence() function does this, and returns the altered estimates resulting from each re-estimation. These altered estimates can subsequently be entered to the \code{\link{cooks.distance}} and \code{\link{dfbetas}} methods, to calculate Cook's Distance and the DFBETAS (standardized difference of the beta) measures.
 }
 
 \author{

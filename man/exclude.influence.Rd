@@ -13,7 +13,7 @@ exclude.influence(model, grouping=NULL, level=NULL, obs=NULL, gf="single", delet
   \item{model}{A mixed effects regression model}
   \item{grouping}{The grouping factor of which one or more groupings levels are to be 'neutralized'}
   \item{level}{Vector of character strings, indicating either a single level or a set of grouping levels the influence of which is to be neutralized}
-  \item{obs}{If obs=TRUE, single observations - rather than groups - are deleted from the model.}
+  \item{obs}{Specifies which individual observation(s) (rather than groups) to be deleted from the data/}
   \item{gf}{Indicates from which of the model's grouping factors the influence of the specified grouping factor is to be neutralized. If \code{gf="single"} (default), the levels of the specified grouping factor are only neutralized from the grouping factor specified in \code{group}. In its present form, \code{gf="single"} only works on mixed models with a maximum of 2 grouping factors. If \code{gf="all"}, the influence from the levels of \code{group} is neutralized regarding all grouping factors in the model. This option only applies to models with more than a single grouping factor.}
   \item{delete}{If delete=TRUE (default), the influence is excluded by simply deleting the observations nested within the higher level group. If delete=FALSE, the influence of higher level groups is excluded from the model by setting the intercept-vector for the observations nested within these groups to 0, and by adding a dummy-variable indicating these observations (Langford and Lewis, 1998). This latter option currently does not work with models that include factor variables.}
 
@@ -30,6 +30,8 @@ Mixed effects regression model of class \code{'mer'}, with a modified random int
 }
 
 \references{
+Nieuwenhuis, R., Te Grotenhuis, M., & Pelzer, B. (2012). Influence.ME: tools for detecting influential data in mixed effects models. \emph{R Journal}, 4(2), 38???47.
+
 Belsley, D.A., Kuh, E. & Welsch, R.E. (1980). \emph{Regression Diagnostics. Identifying Influential Data and Source of Collinearity}. Wiley. 
 
 Langford, I. H. and Lewis, T. (1998). Outliers in multilevel data. Journal of the 
@@ -58,6 +60,8 @@ Also, it is required that the \code{mer} model was estimated using a factor vari
  summary(model.b)
  model.c <- exclude.influence(model.a, grouping="school.ID", level=c("7472", "62821"))
  summary(model.c)
+ model.d <- exclude.influence(model.a, obs=1:10)
+ summary(model.d)
  
  data(Penicillin, package="lme4")
  model.d <- lmer(diameter ~ (1|plate) + (1|sample), Penicillin)

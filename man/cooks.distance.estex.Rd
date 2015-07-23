@@ -4,7 +4,7 @@
 
 \title{Compute the Cook's distance measure of influential data on mixed effects models}
 \description{
-    Cook's Distance is a measure indicating to what extent model parameters are influenced by (a set of) influential data on which the model is based. This function computes the Cook's distance based on the information returned by the estex() function.
+    Cook's Distance is a measure indicating to what extent model parameters are influenced by (a set of) influential data on which the model is based. This function computes the Cook's distance based on the information returned by the influence() function.
 }
 
 \usage{
@@ -12,7 +12,7 @@
 }
 
 \arguments{
-  \item{model}{An object as returned by the estex() function, containing the altered estimates of a mixed effects regression model}
+  \item{model}{An object as returned by the influence() function, containing the altered estimates of a mixed effects regression model}
   \item{parameters}{Used to define a selection of parameters. If parameters=0 (default), Cook's Distance is calculated based on all parameters in the model}
   \item{sort}{If \code{sort=TRUE} the values of Cook's Distance are ordered based on magnitude. If \code{sort=FALSE} (default) no sorting takes place.}
   \item{\dots}{Currently not used}
@@ -23,6 +23,8 @@
 }
 
 \references{
+Nieuwenhuis, R., Te Grotenhuis, M., & Pelzer, B. (2012). Influence.ME: tools for detecting influential data in mixed effects models. \emph{R Journal}, 4(2), 38???47.
+
 Belsley, D.A., Kuh, E. & Welsch, R.E. (1980). \emph{Regression Diagnostics. Identifying Influential Data and Source of Collinearity}. Wiley. 
 
 Snijders, T.A. & Bosker, R.J. (1999). \emph{Multilevel Analysis, an introduction to basic and advanced multilevel modeling}. Sage. 

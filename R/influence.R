@@ -107,8 +107,9 @@
         {
           
           if(count == TRUE) {print(n.groups + 1 - i)}
-          
-          model.updated <- exclude.influence(model, group, grouping.names[i], gf=gf, delete=delete)
+
+          model.updated <- exclude.influence(model=model, grouping=group, level=grouping.names[i], gf=gf, delete=delete)
+
           altered.no.estex <- which(substr(names(fixef(model.updated)), 1,6) != "estex.")
           
           alt.fixed[i,] 	<- as.matrix(fixef(model.updated)[altered.no.estex])

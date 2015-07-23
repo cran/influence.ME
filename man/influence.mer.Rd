@@ -13,8 +13,7 @@ influence(model, group=NULL, select=NULL, obs=FALSE,
 }
 
 \arguments{
-  \item{model}{Mixed effects model of class 'mer'.  For the
-  \code{\link{cooks.distance}} and \code{\link{dfbetas}} methods, this is an \code{estex} object.}
+  \item{model}{Mixed effects model of class 'mer'.}
   \item{group}{Grouping factor in model of which iteratively levels are neutralized}
   \item{select}{Defines the selection of grouping factors that should be omitted. Defaults to 0, resulting in each level of the grouping factor being omitted iteratively. When a selection is defined, model parameters for the full model, and the altered model are returned. The selection can be a vector of multiple levels of the grouping factor.}
   \item{obs}{If obs=TRUE, single observations - rather than groups - are deleted from the model.}
@@ -33,7 +32,7 @@ influence(model, group=NULL, select=NULL, obs=FALSE,
 }
 
 \value{
-  The object returned by estex() of class "alt.est" contains the 'altered estimates' required by several other functions to calculate measures of influential data. A list containing six elements is returned:
+  The object returned by influence() of class "estex" contains the estimates (excluding the influence of specific (groups of) observations) required by several other functions to calculate measures of influential data. A list containing six elements is returned:
   \item{or.fixed}{Fixed estimates of the original model (based on the full data)}
   \item{or.se}{Standard Error of the estimates of the original model}
   \item{or.vcov}{Variance / Covariance matrix of the original model}
@@ -43,12 +42,14 @@ influence(model, group=NULL, select=NULL, obs=FALSE,
 }
 
 \references{
- Belsley, D.A., Kuh, E. & Welsch, R.E. (1980). \emph{Regression Diagnostics. Identifying Influential Data and Source of Collinearity}. Wiley. 
+Nieuwenhuis, R., Te Grotenhuis, M., & Pelzer, B. (2012). Influence.ME: tools for detecting influential data in mixed effects models. \emph{R Journal}, 4(2), 38???47.
+
+Belsley, D.A., Kuh, E. & Welsch, R.E. (1980). \emph{Regression Diagnostics. Identifying Influential Data and Source of Collinearity}. Wiley. 
  
- Langford, I. H. and Lewis, T. (1998). Outliers in multilevel data. Journal of the 
+Langford, I. H. and Lewis, T. (1998). Outliers in multilevel data. Journal of the 
 Royal Statistical Society: Series A (Statistics in Society), 161:121-160.
 
- Snijders, T.A. & Bosker, R.J. (1999). \emph{Multilevel Analysis, an introduction to basic and advanced multilevel modeling}. Sage. 
+Snijders, T.A. & Bosker, R.J. (1999). \emph{Multilevel Analysis, an introduction to basic and advanced multilevel modeling}. Sage. 
 
 Van der Meer, T., Te Grotenhuis, M., & Pelzer, B. (2010). \emph{Influential Cases in Multilevel Modeling: A Methodological Comment}. American Sociological Review, 75(1), 173-178.
 }
@@ -57,11 +58,11 @@ Van der Meer, T., Te Grotenhuis, M., & Pelzer, B. (2010). \emph{Influential Case
 
 \note{
 
-Please note that in its present form, the \code{estex} function only works on mixed effects regression models of class \code{mer} that have been estimated using the functions in the \code{lme4} package. 
+Please note that in its present form, the \code{influence} function only works on mixed effects regression models that have been estimated using the functions in the \code{lme4} package. 
 
 Also, it is required that the \code{mer} model was estimated using a factor variable to indicate group levels. When using something similar to \code{+ (1 | as.factor(variable))}, the function is not able of identifying the correct grouping factors, and returns an error.
 
-Since estex() entails the re-estimation of the provided mixed effects model for each level of the specified grouping factor (after alteration of the data), executing this procedure can be computationally highly demanding. 
+Since influence() entails the re-estimation of the provided mixed effects model for each level of the specified grouping factor (after alteration of the data), executing this procedure can be computationally highly demanding. 
 
 }
 

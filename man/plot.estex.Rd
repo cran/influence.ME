@@ -15,7 +15,7 @@
            
 }
 \arguments{
-  \item{x}{An object as returned by the estex() function, containing the altered estimates of a mixed effects regression model.}
+  \item{x}{An object as returned by the influence() function, containing the altered estimates of a mixed effects regression model.}
   \item{which}{Select which measure of influence is to be plotted. Available options are: \code{"dfbetas"} to visualize dfbetas, \code{"cook"} to plot the cook's distances, \code{"pchange"} to plot the percentage change, and \code{"sigtest"} to plot the test statistic of a parameter estimate after deletion of specific cases.}
   \item{sort}{If \code{sort=TRUE} The values of the selected measure of influence are ordered based on magnitude before visualization. If \code{sort=FALSE} (default) no sorting takes place.}
   \item{to.sort}{Specify on which variable the values of the selected measure of influence must be sorted. If only one variable present (either in the model, or due to the selection specified in \code{parameters}), this parameter can be omitted. If multiple variables are visualized, and sort=TRUE, specification of \code{to.sort} is required, or an error is returned.}

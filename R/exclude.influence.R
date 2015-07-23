@@ -1,4 +1,4 @@
-`exclude.influence` <- 
+`exclude.influence` <-  
 function(model, grouping=NULL, level=NULL, obs=NULL, gf="single", delete=TRUE)
 {
 	data.adapted <- model.frame(model)
@@ -29,7 +29,11 @@ function(model, grouping=NULL, level=NULL, obs=NULL, gf="single", delete=TRUE)
     }
     
 	  data.adapted <- data.adapted[-obs,]
-	  model.updated <- update(model, data=data.adapted)
+	  # For some reason, update() can not find the data.adapted within the function without the line below. 
+	  data.update <- data.adapted		
+	  # It can find data.update
+	  
+	  model.updated <- update(model, data=data.update)
 	  return(model.updated)
 	}
   
@@ -43,11 +47,18 @@ function(model, grouping=NULL, level=NULL, obs=NULL, gf="single", delete=TRUE)
     
     ## Only works when length(level) == 1, this needs to be enhanced
 	 	group.var <- which(names(data.adapted) == grouping)
+	 	
 		for (i in 1:length(level))
 			{
 			data.adapted <- subset(data.adapted, data.adapted[,group.var]!=level[i])
-			}
-		model.updated <- update(model, data=data.adapted)
+     }
+    
+	 	# For some reason, update() can not find the data.adapted within the function without the line below. 
+	 	data.update <- data.adapted		
+	 	# It can find data.update
+	 	
+	 	model.updated <- update(model, data=data.update)
+	 	
 		return(model.updated)
     
 	 }
@@ -198,7 +209,7 @@ function(model, grouping=NULL, level=NULL, obs=NULL, gf="single", delete=TRUE)
 				"+ .")),
 			data = data.adapted)
 		}		
-	
+
 	return(model.updated)
 	
 }

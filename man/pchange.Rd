@@ -3,14 +3,14 @@
 
 \title{Compute the percentage change, as measure of influential data}
 \description{
- Computes the percentile change, as a measure of influential data. This unstandardized measure can serve to help interpret the magnitude of the influence single or combined grouping levels exert on mixed effects models. The percentage change in parameter estimates between a (mixed effects) regression model based on a full set of data, and a model from which a (potentially influential) subset of data is removed. A value of percentage change is calculated for each parameter in the model separately, based on the information returned by the estex() function.
+ Computes the percentile change, as a measure of influential data. This unstandardized measure can serve to help interpret the magnitude of the influence single or combined grouping levels exert on mixed effects models. The percentage change in parameter estimates between a (mixed effects) regression model based on a full set of data, and a model from which a (potentially influential) subset of data is removed. A value of percentage change is calculated for each parameter in the model separately, based on the information returned by the influence() function.
 }
 \usage{
 pchange(estex, parameters = 0, sort=FALSE, to.sort=NA, abs=FALSE)
 }
 
 \arguments{
-  \item{estex}{An object as returned by the estex() function, containing the altered estimates of a mixed effects regression model}
+  \item{estex}{An object as returned by the influence() function, containing the altered estimates of a mixed effects regression model}
   \item{parameters}{Used to define a selection of parameters. If parameters=0 (default), percentage change are calculated for all parameters in the model}
   \item{sort}{If \code{sort=TRUE} the values of percentage change are ordered based on magnitude. If \code{sort=FALSE} (default) no sorting takes place.}
   \item{to.sort}{Specify on which variable the percentage changes must be sorted. If only one variable present (either in the model, or due to the selection specified in \code{parameters}), this parameter can be omitted. If percentage changes are calculated for multiple variables, and sort=TRUE, specification of \code{to.sort} is required, or an error is returned.}

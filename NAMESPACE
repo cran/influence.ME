@@ -6,7 +6,9 @@ importFrom("stats",
 importFrom("lattice", 
 			dotplot, panel.dotplot)
 importFrom("lme4",
-			lmer)		
+			lmer)
+importFrom("stats", "as.formula", "coef", "model.frame", "update",
+            "vcov")
 export(cooks.distance.estex, 
        dfbetas.estex,
        pchange,

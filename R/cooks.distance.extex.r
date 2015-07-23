@@ -1,6 +1,6 @@
 cooks.distance.estex <- function(model, parameters=0, sort=FALSE, ...) 
 	{
-		
+ 		
 		estex <- model
 		
 		n.groups <- dim(estex$alt.fixed)[1]

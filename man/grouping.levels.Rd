@@ -1,4 +1,4 @@
-\name{grouping.levels}
+\name{grouping.levels} 
 \alias{grouping.levels}
 \title{Returns the levels of a grouping factor in a mixed effects regression model}
 
