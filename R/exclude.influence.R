@@ -1,7 +1,14 @@
 `exclude.influence` <-  
 function(model, grouping=NULL, level=NULL, obs=NULL, gf="single", delete=TRUE)
 {
-	data.adapted <- model.frame(model)
+  
+  # Thanks to Kevin Darras for suggestion on how to extend functionality to binomial models and functions inside the model call
+  
+  ifelse(as.character(model@call)[3]=="data.update",
+         data.adapted <- model.frame(model),
+         data.adapted <- get(as.character(model@call)[3]))
+  
+  
 	added.variables <- character()
 	ranef <- NA
 	rm(ranef)

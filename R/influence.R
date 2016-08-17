@@ -20,7 +20,15 @@
     
     
     # Defining Internal Variables
-    data.adapted <- model.frame(model)
+	  # Thanks to Kevin Darras for suggestion on how to extend functionality to binomial models and functions inside the model call
+	
+	  ifelse(as.character(model@call)[3]=="data.update",
+	         data.adapted <- model.frame(model),
+	        data.adapted <- get(as.character(model@call)[3]))
+	   
+	#data.adapted <- get(as.character(model@call)[3])
+	
+	
     original.no.estex <- which(substr(names(fixef(model)), 1,6) != "estex.")
     n.pred <- length(fixef(model)[original.no.estex])
     

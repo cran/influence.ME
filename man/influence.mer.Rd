@@ -75,13 +75,18 @@ Since influence() entails the re-estimation of the provided mixed effects model 
  model.a <- lmer(math ~ structure + SES  + (1 | school.ID), data=school23)
  alt.est.a <- influence(model=model.a, group="school.ID")
  alt.est.b <- influence(model=model.a, group="school.ID", select="7472")
- alt.est.c <- influence(model=model.a, group="school.ID", select=c("7472", "62821"))
- 
- data(Penicillin, package="lme4")
- model.b <- lmer(diameter ~ (1|plate) + (1|sample), Penicillin)
- alt.est.d <- influence(model=model.b, group="plate")
- alt.est.e <- influence(model=model.b, group="sample")
- alt.est.f <- influence(model=model.b, group="sample", gf="all")
+# alt.est.c <- influence(model=model.a, group="school.ID", select=c("7472", "62821"))
+
+# Note: does not work on models produced by exclude.influence()
+ model.b <- lmer(math ~ structure + scale(SES)  + (1 | school.ID), data=school23)
+ alt.est.d <- influence(model=model.b, group="school.ID", select=c("7472", "62821"))
+
+# data(Penicillin, package="lme4")
+# model.c <- lmer(diameter ~ (1|plate) + (1|sample), Penicillin)
+# alt.est.e <- influence(model=model.c, group="plate")
+# alt.est.f <- influence(model=model.c, group="sample")
+# alt.est.g <- influence(model=model.c, group="sample", gf="all")
+
 }
 
 \keyword{robust}
