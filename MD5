@@ -1,4 +1,4 @@
-16f8b4d6f224a5585b270d703bc4ffa4 *DESCRIPTION
+290df89692b112fd8c33a7326e715bda *DESCRIPTION
 39986c07b4d4cc1020019a99f8edcc3d *NAMESPACE
 044f3d73f593784d0e024707f35adec1 *R/cooks.distance.extex.r
 583c497e8174694a28031f5652389595 *R/dfbetas.estex.r
@@ -10,7 +10,7 @@ bd42a80273b40660c185c759580f9f9e *R/plot.estex.R
 70911da37c8c47eade2ac0e3f19cf0c4 *R/se.fixef.R
 b984166eb8af7a08d38f43a46cd03d10 *R/sigtest.R
 36a4f0fd543e04292c233afd44c2ad82 *data/school23.rda
-415ce29d791a080335dbafadb013a1e6 *inst/CITATION
+2d819fbcb2d77985e167475372b2cd88 *inst/CITATION
 eb6bf82bc9a6a8c1722bcd0a7a075fa7 *man/cooks.distance.estex.Rd
 1406cc7d0e7d4ef625c1864d0030903c *man/dfbetas.estex.Rd
 c11bb4f6c3f1e791df8d2e05962f7722 *man/exclude.influence.Rd
