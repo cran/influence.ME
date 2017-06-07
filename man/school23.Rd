@@ -39,9 +39,10 @@ Kreft, I. and De Leeuw, J. (1998). \emph{Introducing Multilevel Modeling}. Sage 
 
 }
 \examples{
-
+\dontrun{
 data(school23)
 model <- lmer(math ~ structure + (1 | school.ID), data=school23)
 summary(model)
+}
 }
 \keyword{datasets}

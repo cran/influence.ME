@@ -35,13 +35,14 @@ Van der Meer, T., Te Grotenhuis, M., & Pelzer, B. (2010). \emph{Influential Case
 \code{\link{dfbetas.estex}}}
 
 \examples{
+\dontrun{
  data(school23)
  model <- lmer(math ~ structure + SES  + (1 | school.ID), data=school23)
 
  alt.est <- influence(model, group="school.ID")
  pchange(alt.est)
 }
-
+}
 \keyword{robust}
 \keyword{models}
 \keyword{regression}

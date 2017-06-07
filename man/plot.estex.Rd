@@ -34,13 +34,14 @@
 }
 
 \examples{
+\dontrun{
 data(school23)
 model <- lmer(math ~ structure + SES  + (1 | school.ID), data=school23)
 
 alt.est <- influence(model, "school.ID")
 plot(alt.est, which="dfbetas")
 plot(alt.est, which="cook", sort=TRUE)
-
+}
 }
 
 \keyword{hplot}

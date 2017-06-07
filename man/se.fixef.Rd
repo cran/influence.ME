@@ -24,10 +24,12 @@ This is a small helper-function to the influence.ME package. For more elaborate 
 }
 
 \examples{
+\dontrun{
 data(school23)
 model <- lmer(math ~  homework + structure + (1 | school.ID), data=school23)
 summary(model)
 se.fixef(model)
+}
 }
 
 \keyword{regression}

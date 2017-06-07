@@ -28,7 +28,7 @@ Returns a list. For each variable in the original model that was evaluated, this
 \author{Rense Nieuwenhuis, Manfred te Grotenhuis, Ben Pelzer}
 
 \examples{
-
+\dontrun{
 data(school23)
 m23 <- lmer(math ~ homework + structure 
    + (1 | school.ID), 
@@ -38,6 +38,6 @@ estex.m23  <- influence(m23, group="school.ID")
    
 sigtest(estex.m23, test=-1.96)$structure
 }
-
+}
 \keyword{influence}
 

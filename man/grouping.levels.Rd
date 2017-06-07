@@ -26,12 +26,13 @@ grouping.levels(model, group)
 \author{Rense Nieuwenhuis, Ben Pelzer, Manfred te Grotenhuis}
 
 \examples{
+ \dontrun{
  # Penicillin data originates from the lme4 package.
  model <- lmer(diameter ~ (1|plate) + (1|sample), Penicillin)
 
  grouping.levels(model, "plate")
  grouping.levels(model, "sample")
 }
-
+}
 \keyword{models}
 \keyword{regression}

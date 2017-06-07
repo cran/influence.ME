@@ -61,6 +61,7 @@ plot.estex <- function(x, which="dfbetas",
 	{
 		
 		sigs <- sigtest(estex, test=cutoff, sort=sort, to.sort=to.sort, ...)
+		sigs <- sigs[parameters] 
 		test.stats 		<- lapply(sigs, function(x) return(x[,1]))
 		test.changed 	<- lapply(sigs, function(x) return(x[,3]))
 		

@@ -38,11 +38,13 @@ Van der Meer, T., Te Grotenhuis, M., & Pelzer, B. (2010). \emph{Influential Case
 \seealso{\code{\link{influence.mer}}, \code{\link{cooks.distance.estex}}}
 
 \examples{
+\dontrun{
  data(school23)
  model <- lmer(math ~ structure + SES  + (1 | school.ID), data=school23)
 
  alt.est <- influence(model, group="school.ID")
  dfbetas(alt.est)
+}
 }
 
 \keyword{robust}

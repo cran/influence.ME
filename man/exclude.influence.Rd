@@ -53,7 +53,8 @@ Also, it is required that the \code{mer} model was estimated using a factor vari
 \seealso{\code{\link{influence}}}
 
 \examples{
- #data(school23)
+ \dontrun{
+ data(school23)
  model.a <- lmer(math ~ structure + SES  + (1 | school.ID), data=school23)
  summary(model.a)
  model.b <- exclude.influence(model.a, grouping="school.ID", level="7472")
@@ -68,6 +69,7 @@ Also, it is required that the \code{mer} model was estimated using a factor vari
  summary(model.d)
  model.e <- exclude.influence(model.d, grouping="sample", level="A", gf="all")
  summary(model.e)
+}
 }
 
 \keyword{robust}

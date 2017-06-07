@@ -50,18 +50,20 @@ Van der Meer, T., Te Grotenhuis, M., & Pelzer, B. (2010). \emph{Influential Case
 }
 
 \examples{
+\dontrun{
 data(school23)
 
 model.a <- lmer(math ~ structure + SES  + (1 | school.ID), data=school23)
 alt.est.a <- influence(model.a, "school.ID")
  
 model.b <- exclude.influence(model.a, "school.ID", "7472")
-#alt.est.b <- influence(model.b, "school.ID")
+alt.est.b <- influence(model.b, "school.ID")
 
-#cooks.distance(alt.est.b)
+cooks.distance(alt.est.b)
 
-#model.c <- exclude.influence(model.b, "school.ID", "54344")
-#alt.est.c <- influence(model.c, "school.ID")
+model.c <- exclude.influence(model.b, "school.ID", "54344")
+alt.est.c <- influence(model.c, "school.ID")
 
-#cooks.distance(alt.est.c)
+cooks.distance(alt.est.c)
+}
 }
